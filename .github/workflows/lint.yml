@@ -15,7 +15,7 @@ jobs:
       - run: black --check .
       - name: Run mypy
         run: |
-          if git ls-files '*.py' >/dev/null 2>&1; then
+          if [ -n "$(git ls-files '*.py')" ]; then
             mypy .
           else
             echo "No Python files, skipping mypy"
