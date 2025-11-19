@@ -13,4 +13,10 @@ jobs:
       - run: pip install ruff black mypy
       - run: ruff check .
       - run: black --check .
-      - run: mypy .
+      - name: Run mypy
+        run: |
+          if git ls-files '*.py' >/dev/null 2>&1; then
+            mypy .
+          else
+            echo "No Python files, skipping mypy"
+          fi
