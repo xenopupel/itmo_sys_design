@@ -20,3 +20,43 @@
 - **LLM**
 - **Poetry** — управление зависимостями
 - **Ruff + Black + Mypy** — линтинг/форматирование/типизация
+
+---
+
+## Запуск
+
+### Создание окружения
+
+```bash
+poetry install
+```
+
+```bash
+poetry shell
+```
+
+### Переменные окружения
+
+- `OPENAI_API_BASE` — URL OpenAI-совместимого сервиса
+- `OPENAI_API_KEY` — API-ключ
+- `CRITERIA_PATH` — путь к YAML с критериями
+
+### Сервис (FastAPI)
+
+```bash
+uvicorn app:app --host 0.0.0.0 --port 8000
+```
+
+Пример запроса:
+
+```json
+{
+  "calls": [
+    {
+      "call_id": "call_1",
+      "transcript_text": "Текст транскрипта...",
+      "checklist_type": "support"
+    }
+  ]
+}
+```
