@@ -20,10 +20,7 @@ def build_user_prompt(call: Dict[str, Any], criteria: List[Criterion]) -> str:
     checklist_type = str(call.get("checklist_type", "")).strip()
 
     criteria_block = "\n\n".join(
-        [
-            f"{c.cid}. {c.name}\nОписание: {c.description}\nИнструкция: {c.prompt}"
-            for c in criteria
-        ]
+        [f"{c.cid}. {c.name}\nОписание: {c.description}\nИнструкция: {c.prompt}" for c in criteria]
     )
 
     checklist_line = f"\nТип чек-листа: {checklist_type}\n" if checklist_type else "\n"

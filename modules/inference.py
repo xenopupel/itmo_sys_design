@@ -38,9 +38,7 @@ def normalize_score(value: Any) -> Optional[int]:
     return score if score in (0, 1, 2) else None
 
 
-def score_call(
-    llm, call: Dict[str, Any], criteria: List[Criterion]
-) -> List[Dict[str, Any]]:
+def score_call(llm, call: Dict[str, Any], criteria: List[Criterion]) -> List[Dict[str, Any]]:
     user_prompt = build_user_prompt(call, criteria)
     response = llm.invoke([SystemMessage(content=SYSTEM_PROMPT), HumanMessage(content=user_prompt)])
     data = extract_json(str(response.content))
