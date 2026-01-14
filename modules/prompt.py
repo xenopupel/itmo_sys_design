@@ -2,7 +2,6 @@ from typing import Any, Dict, List
 
 from .schema import Criterion
 
-
 SYSTEM_PROMPT = """
 Ты — эксперт по контролю качества работы операторов контакт-центра.
 Твоя задача — оценивать, насколько оператор выполняет заданные критерии.
